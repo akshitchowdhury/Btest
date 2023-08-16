@@ -1,8 +1,8 @@
 import bodyParser from 'body-parser'
 import express from 'express'
-import moduleName from 'module'
+
 import {dirname} from 'path'
-import fileURLToPath from 'url'
+import {fileURLToPath} from 'url'
 
 const app = express()
 const port = 3000
@@ -13,9 +13,9 @@ app.listen(port, ()=>{
     console.log("listening to port "+ port)
 })
 
-app.get("/", (rew,res)=>{
+app.get("/", (req,res)=>{
 
-    res.sendFile(_dirname, "/index.html")
+    res.sendFile(_dirname, "index.html")
 })
 
 app.use(bodyParser.urlencoded({extended: true}))
