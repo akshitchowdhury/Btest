@@ -6,16 +6,14 @@ import {fileURLToPath} from 'url'
 
 const app = express()
 const port = 3000
-const _dirname = dirname(fileURLToPath(import.meta.url))
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 
-app.listen(port, ()=>{
-    console.log("listening to port "+ port)
-})
+
 
 app.get("/", (req,res)=>{
 
-    res.sendFile(_dirname, "index.html")
+    res.sendFile(__dirname +"/public/index.html")
 })
 
 app.use(bodyParser.urlencoded({extended: true}))
@@ -23,4 +21,6 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.post("/submit", (req,res)=>{
     console.log(req.body)
 })
-
+app.listen(port, ()=>{
+    console.log("listening to port "+ port)
+})
